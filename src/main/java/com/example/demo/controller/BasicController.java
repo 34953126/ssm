@@ -15,7 +15,7 @@ import com.example.demo.dao.UserDAO;
 /**
  * @RestController = @Controller + @ResponseBody
  */
-@Controller
+@RestController
 public class BasicController {
 	
 	@Autowired
@@ -27,15 +27,13 @@ public class BasicController {
 		return "login";
 		// 此处表示返回值是一个值为“login”的String。不指向界面的原因是类的注解是@RestController
 	}
-	
-	
+
 	@RequestMapping(value = "/login")
 	public ModelAndView index() {
 		System.out.println("进入index.do");
 		return new ModelAndView("login"); // 此处指向界面
 	}
-	
-	
+
 	@GetMapping(value = "/login.do")
 	public Object login(String name, String password) {
 		System.out.println("传入参数：name=" + name + ", password=" + password);
