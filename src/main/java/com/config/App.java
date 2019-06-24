@@ -1,8 +1,9 @@
-package com.example.demo;
+package com.config;
 
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.ComponentScan;
 
 /**
  * @Description springboot 启动入口
@@ -13,6 +14,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  *
  */
 @SpringBootApplication
+@ComponentScan(basePackages = {"com.**.controller"})
+@MapperScan(basePackages = "com.**.dao")
 public class App {
     public static void main(String[] args) {
         SpringApplication.run(App.class,args);
