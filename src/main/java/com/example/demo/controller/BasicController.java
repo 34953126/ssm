@@ -1,5 +1,6 @@
 package com.example.demo.controller;
 
+import org.apache.catalina.servlet4preview.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.StringUtils;
@@ -29,13 +30,13 @@ public class BasicController {
 	}
 
 	@RequestMapping(value = "/login")
-	public ModelAndView index() {
-		System.out.println("进入index.do");
+	public ModelAndView index(HttpServletRequest req) {
+		req.setAttribute("aa","测试数据");
 		return new ModelAndView("login"); // 此处指向界面
 	}
 
 	@GetMapping(value = "/login.do")
-	public Object login(String name, String password) {
+	public Object login(String name, String password, HttpServletRequest req) {
 		System.out.println("传入参数：name=" + name + ", password=" + password);
 		if (StringUtils.isEmpty(name)) {
 			return "name不能为空";
@@ -44,6 +45,7 @@ public class BasicController {
 		}
 		User user = userDAO.find(name, password);
 		if (user != null) {
+
 			return user;
 		} else {
 			return "用户名或密码错误";
