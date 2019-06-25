@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <!-- meta这一句指定编码格式，能够防止中文乱码  -->
-<meta charset="UTF-8" />
+<meta charset="UTF-8"/>
 <head>
-  <title>登录</title>
+    <title>登录</title>
 </head>
 <body>
-  <form action="/login.do" method="GET">
-          用户名：<input type="text" id="name" name="name" />
-          密码：  <input type="password" id="password" name="password" />
-    <input type="button" value="登录" onclick="submit()" />
-  </form>
+    <form action="/login.do" method="GET">
+        用户名：<input type="text" id="name" name="name"/>
+        密码： <input type="password" id="password" name="password"/>
+        <input type="button" value="登录" onclick="submit()"/>
+    </form>
 
-  <p th:text="${aa}"></p>
+    <p th:text="${aa}"></p>
 
 </body>
 </html>

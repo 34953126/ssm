@@ -18,37 +18,37 @@ import com.example.demo.dao.UserDAO;
  */
 @RestController
 public class BasicController {
-	
-	@Autowired
-	private UserDAO userDAO;
 
-	@RequestMapping(value="/",method= RequestMethod.GET)
-	public String login() {
-		return "login";
-		// 此处表示返回值是一个值为“login”的String。不指向界面的原因是类的注解是@RestController
-	}
+    @Autowired
+    private UserDAO userDAO;
 
-	@RequestMapping(value = "/login")
-	public ModelAndView index(HttpServletRequest req) {
-		req.setAttribute("aa","测试数据");
-		return new ModelAndView("login"); // 此处指向界面
-	}
+    @RequestMapping(value = "/", method = RequestMethod.GET)
+    public String login() {
+        return "login";
+        // 此处表示返回值是一个值为“login”的String。不指向界面的原因是类的注解是@RestController
+    }
 
-	@GetMapping(value = "/login.do")
-	public Object login(String name, String password, HttpServletRequest req) {
-		System.out.println("传入参数：name=" + name + ", password=" + password);
-		if (StringUtils.isEmpty(name)) {
-			return "name不能为空";
-		} else if (StringUtils.isEmpty(password)) {
-			return "password不能为空";
-		}
-		User user = userDAO.find(name, password);
-		if (user != null) {
+    @RequestMapping(value = "/login")
+    public ModelAndView index(HttpServletRequest req) {
+        req.setAttribute("aa", "测试数据");
+        return new ModelAndView("login"); // 此处指向界面
+    }
 
-			return user;
-		} else {
-			return "用户名或密码错误";
-		}
-	}
+    @GetMapping(value = "/login.do")
+    public Object login(String name, String password, HttpServletRequest req) {
+        System.out.println("传入参数：name=" + name + ", password=" + password);
+        if (StringUtils.isEmpty(name)) {
+            return "name不能为空";
+        } else if (StringUtils.isEmpty(password)) {
+            return "password不能为空";
+        }
+        User user = userDAO.find(name, password);
+        if (user != null) {
+
+            return user;
+        } else {
+            return "用户名或密码错误";
+        }
+    }
 
 }

@@ -11,11 +11,8 @@ import org.springframework.context.annotation.ComponentScan;
  * @Version V1.0.0
  * @Since 1.0
  * @Date 2019/6/23
- *
- * @ComponentScan
- * 自动扫描包路径下的所有@Controller、@Service、@Repository、@Component的类
- * @MapperScan
- * 之前是直接在mapper类上面添加注解@Mapper，这种方式需要对每一个mapper类添加此注解，
+ * @ComponentScan 自动扫描包路径下的所有@Controller、@Service、@Repository、@Component的类
+ * @MapperScan 之前是直接在mapper类上面添加注解@Mapper，这种方式需要对每一个mapper类添加此注解，
  * 非常麻烦。所以通过@MapperScan可以指定要扫面的Mapper类的包的路径
  */
 @SpringBootApplication
@@ -23,6 +20,6 @@ import org.springframework.context.annotation.ComponentScan;
 @MapperScan(basePackages = "com.**.dao")
 public class App {
     public static void main(String[] args) {
-        SpringApplication.run(App.class,args);
+        SpringApplication.run(App.class, args);
     }
 }
