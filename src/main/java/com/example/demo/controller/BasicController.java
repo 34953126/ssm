@@ -24,7 +24,6 @@ public class BasicController {
 
 	@RequestMapping(value="/",method= RequestMethod.GET)
 	public String login() {
-		System.out.println("进入login");
 		return "login";
 		// 此处表示返回值是一个值为“login”的String。不指向界面的原因是类的注解是@RestController
 	}
